@@ -21,5 +21,15 @@ namespace RoletaDoSaber
         {
             
         }
+
+        private void cmdJogar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdRegistrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
