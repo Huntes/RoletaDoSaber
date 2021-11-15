@@ -16,5 +16,22 @@ namespace RoletaDoSaber
         {
             InitializeComponent();
         }
+
+        private void cmdJogar_Click(object sender, EventArgs e)
+        {
+            Jogo jogo = new Jogo();
+            jogo.Show();
+        }
+
+        private void cmdMenu_Click(object sender, EventArgs e)
+        {
+            Form1 menu = new Form1();
+            menu.Show();
+        }
+
+        private void cmdRegistrar_Click(object sender, EventArgs e)
+        {
+            cmdJogar.Enabled = true;
+        }
     }
 }

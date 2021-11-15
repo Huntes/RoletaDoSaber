@@ -48,6 +48,7 @@ namespace RoletaDoSaber
             this.pictureBox1.Size = new System.Drawing.Size(339, 321);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
             // lblPergunta
             // 
@@ -68,7 +69,7 @@ namespace RoletaDoSaber
             this.cmdRespostaA.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmdRespostaA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdRespostaA.ForeColor = System.Drawing.Color.White;
-            this.cmdRespostaA.Location = new System.Drawing.Point(512, 185);
+            this.cmdRespostaA.Location = new System.Drawing.Point(512, 145);
             this.cmdRespostaA.Name = "cmdRespostaA";
             this.cmdRespostaA.Size = new System.Drawing.Size(232, 46);
             this.cmdRespostaA.TabIndex = 2;
@@ -82,7 +83,7 @@ namespace RoletaDoSaber
             this.cmdRespostaB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmdRespostaB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdRespostaB.ForeColor = System.Drawing.Color.White;
-            this.cmdRespostaB.Location = new System.Drawing.Point(512, 251);
+            this.cmdRespostaB.Location = new System.Drawing.Point(512, 214);
             this.cmdRespostaB.Name = "cmdRespostaB";
             this.cmdRespostaB.Size = new System.Drawing.Size(232, 46);
             this.cmdRespostaB.TabIndex = 3;
@@ -96,7 +97,7 @@ namespace RoletaDoSaber
             this.cmdRespostaC.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmdRespostaC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdRespostaC.ForeColor = System.Drawing.Color.White;
-            this.cmdRespostaC.Location = new System.Drawing.Point(512, 315);
+            this.cmdRespostaC.Location = new System.Drawing.Point(512, 283);
             this.cmdRespostaC.Name = "cmdRespostaC";
             this.cmdRespostaC.Size = new System.Drawing.Size(232, 46);
             this.cmdRespostaC.TabIndex = 4;
@@ -110,7 +111,7 @@ namespace RoletaDoSaber
             this.cmdRespostaD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmdRespostaD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdRespostaD.ForeColor = System.Drawing.Color.White;
-            this.cmdRespostaD.Location = new System.Drawing.Point(512, 378);
+            this.cmdRespostaD.Location = new System.Drawing.Point(512, 350);
             this.cmdRespostaD.Name = "cmdRespostaD";
             this.cmdRespostaD.Size = new System.Drawing.Size(232, 46);
             this.cmdRespostaD.TabIndex = 5;
@@ -133,6 +134,7 @@ namespace RoletaDoSaber
             this.MaximizeBox = false;
             this.Name = "Jogo";
             this.Text = "Jogo";
+            this.Load += new System.EventHandler(this.Jogo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

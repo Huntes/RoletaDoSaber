@@ -82,6 +82,7 @@ namespace RoletaDoSaber
             this.cmdMenu.TabIndex = 3;
             this.cmdMenu.Text = "Menu";
             this.cmdMenu.UseVisualStyleBackColor = false;
+            this.cmdMenu.Click += new System.EventHandler(this.cmdMenu_Click);
             // 
             // cmdRegistrar
             // 
@@ -96,6 +97,7 @@ namespace RoletaDoSaber
             this.cmdRegistrar.TabIndex = 4;
             this.cmdRegistrar.Text = "Registrar";
             this.cmdRegistrar.UseVisualStyleBackColor = false;
+            this.cmdRegistrar.Click += new System.EventHandler(this.cmdRegistrar_Click);
             // 
             // cmdJogar
             // 
@@ -111,6 +113,7 @@ namespace RoletaDoSaber
             this.cmdJogar.TabIndex = 5;
             this.cmdJogar.Text = "Jogar";
             this.cmdJogar.UseVisualStyleBackColor = false;
+            this.cmdJogar.Click += new System.EventHandler(this.cmdJogar_Click);
             // 
             // Cadastro
             // 

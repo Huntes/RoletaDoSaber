@@ -24,7 +24,8 @@ namespace RoletaDoSaber
 
         private void cmdJogar_Click(object sender, EventArgs e)
         {
-
+            Cadastro cadastro = new Cadastro();
+            cadastro.Show();
         }
 
         private void cmdRegistrar_Click(object sender, EventArgs e)
