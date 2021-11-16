@@ -103,6 +103,8 @@
     <None Include="Resources\backjogo.jpg" />
     <None Include="Resources\backcadastro.jpg" />
     <None Include="Resources\backmenu.jpg" />
+    <None Include="Resources\Roleta12.png" />
+    <None Include="Resources\FundoRoleta.jpg" />
     <Content Include="Roleta.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -93,9 +93,29 @@ namespace RoletaDoSaber.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FundoRoleta {
+            get {
+                object obj = ResourceManager.GetObject("FundoRoleta", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Roleta {
             get {
                 object obj = ResourceManager.GetObject("Roleta", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Roleta12 {
+            get {
+                object obj = ResourceManager.GetObject("Roleta12", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
