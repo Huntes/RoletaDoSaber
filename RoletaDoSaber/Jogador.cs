@@ -9,6 +9,6 @@ namespace RoletaDoSaber
     public class Jogador
     {
         public string Nome { get; set; }
-        public string Pontos { get; set; }
+        public int Pontos { get; set; }
     }
 }
