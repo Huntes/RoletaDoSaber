@@ -52,6 +52,12 @@
     <Compile Include="Cadastro.Designer.cs">
       <DependentUpon>Cadastro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Final.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Final.Designer.cs">
+      <DependentUpon>Final.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Cadastro.resx">
       <DependentUpon>Cadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Final.resx">
+      <DependentUpon>Final.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -107,6 +116,7 @@
     <None Include="Resources\backmenu.jpg" />
     <None Include="Resources\Roleta12.png" />
     <None Include="Resources\FundoRoleta.jpg" />
+    <None Include="Resources\maxresdefault.jpg" />
     <Content Include="Roleta.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

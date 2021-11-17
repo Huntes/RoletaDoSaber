@@ -23,12 +23,12 @@ namespace RoletaDoSaber
         {
             Jogo jogo = new Jogo(jogador);
             jogo.Show();
+            Close();
         }
 
         private void cmdMenu_Click(object sender, EventArgs e)
         {
-            Form1 menu = new Form1();
-            menu.Show();
+            Close();
         }
 
         private void cmdRegistrar_Click(object sender, EventArgs e)
@@ -41,6 +41,7 @@ namespace RoletaDoSaber
             {
                 cmdJogar.Enabled = true;
                 jogador.Nome = txtNome.Text;
+                MessageBox.Show($"{jogador.Nome} Registrado!!");
             }
         }
     }

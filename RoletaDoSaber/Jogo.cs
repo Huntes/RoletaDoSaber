@@ -43,7 +43,7 @@ namespace RoletaDoSaber
             RespostaA = "Pico da neblina", RespostaB = "Pico Paraná", RespostaC = "Monte Roraima", RespostaD = "Pico maior de Friburgo"},
         };
         #endregion
-        Jogador Jogador = new Jogador();
+        public Jogador Jogador = new Jogador();
         public Jogo()
         {
             InitializeComponent();
@@ -61,6 +61,7 @@ namespace RoletaDoSaber
         private void Jogo_Load(object sender, EventArgs e)
         {
             lblJogador.Text = Jogador.Nome;
+            Jogador.Pontos = 0;
 
             listaOpcoesRoleta.Add(lblOpcao1);
             listaOpcoesRoleta.Add(lblOpcao2);
@@ -94,7 +95,9 @@ namespace RoletaDoSaber
             }
             else
             {
-                //Fazer para finalizar jogo
+                Final final = new Final(Jogador);
+                final.Show();
+                Close();
             }
         }
 

@@ -339,6 +339,7 @@ namespace RoletaDoSaber
             this.Controls.Add(this.lblPergunta);
             this.MaximizeBox = false;
             this.Name = "Jogo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Jogo";
             this.Load += new System.EventHandler(this.Jogo_Load);
             this.ResumeLayout(false);
