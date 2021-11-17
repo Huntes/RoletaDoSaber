@@ -14,7 +14,7 @@ namespace RoletaDoSaber
 {
     public partial class Jogo : Form
     {
-        #region Perguntas e Roleta
+        #region Perguntas/Respostas e Roleta
         public static List<Label> listaOpcoesRoleta = new List<Label>();
         public static readonly List<Pegunta> listaPerguntas = new List<Pegunta>()
         {
@@ -42,6 +42,18 @@ namespace RoletaDoSaber
             new Pegunta{ID = 8, Pergunta = "Qual a montanha mais alta do Brasil?",
             RespostaA = "Pico da neblina", RespostaB = "Pico Paraná", RespostaC = "Monte Roraima", RespostaD = "Pico maior de Friburgo"},
         };
+        public static readonly List<Resposta> listaRespostas = new List<Resposta>()
+        {
+            new Resposta{IDPergunta = 1, LetraResposta = (int)eResposta.LetraC },
+            new Resposta{IDPergunta = 2, LetraResposta = (int)eResposta.LetraB },
+            new Resposta{IDPergunta = 3, LetraResposta = (int)eResposta.LetraC },
+            new Resposta{IDPergunta = 4, LetraResposta = (int)eResposta.LetraC },
+            new Resposta{IDPergunta = 5, LetraResposta = (int)eResposta.LetraD },
+            new Resposta{IDPergunta = 6, LetraResposta = (int)eResposta.LetraA },
+            new Resposta{IDPergunta = 7, LetraResposta = (int)eResposta.LetraB },
+            new Resposta{IDPergunta = 8, LetraResposta = (int)eResposta.LetraA },
+        };
+
         #endregion
         Jogador Jogador = new Jogador();
         public Jogo()
@@ -57,6 +69,7 @@ namespace RoletaDoSaber
 
         int contador = 0;
         int posicao = 0;
+        int resposta = 0;
 
         private void Jogo_Load(object sender, EventArgs e)
         {
@@ -80,7 +93,13 @@ namespace RoletaDoSaber
 
         public void EmJogo()
         {
-            if (posicao != 0) {
+            cmdRespostaA.Enabled = true;
+            cmdRespostaB.Enabled = true;
+            cmdRespostaC.Enabled = true;
+            cmdRespostaD.Enabled = true;
+
+            if (posicao != 0)
+            {
                 timer1.Enabled = true;
                 timer1.Enabled = false;
             }
@@ -124,8 +143,109 @@ namespace RoletaDoSaber
             //A cada vez que clicar no botão confirma, trocar as propriedades text do botão e da pergunta
             //pela pergunta que estiver na posição do foreach()
 
-            posicao++;
-            EmJogo();
+            if (resposta == 0)
+            {
+                MessageBox.Show("Escolha uma resposta!");
+            }
+            else
+            {
+                switch (resposta)
+                {
+                    case 1:
+                        var pegaRespostaA = listaRespostas.Where(c => c.IDPergunta == posicao+1).FirstOrDefault();
+                        if (pegaRespostaA.LetraResposta == resposta)
+                        {
+                            Jogador.Pontos += 10;
+                            MessageBox.Show($"Parabéns, você acertou a pergunta {posicao +1}");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Resposta Incorreta, a resposta correta era a {eLetraResposta.GetNomeTela(pegaRespostaA.LetraResposta)}");
+                        }
+                        break;
+                    case 2:
+                        var pegaRespostaB = listaRespostas.Where(c => c.IDPergunta == posicao+1).FirstOrDefault();
+                        if (pegaRespostaB.LetraResposta == resposta)
+                        {
+                            Jogador.Pontos += 10;
+                            MessageBox.Show($"Parabéns, você acertou a pergunta {posicao +1}");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Resposta Incorreta, a resposta correta era a {eLetraResposta.GetNomeTela(pegaRespostaB.LetraResposta)}");
+                        }
+                        break;
+                    case 3:
+                        var pegaRespostaC = listaRespostas.Where(c => c.IDPergunta == posicao+1).FirstOrDefault();
+                        if (pegaRespostaC.LetraResposta == resposta)
+                        {
+                            Jogador.Pontos += 10;
+                            MessageBox.Show($"Parabéns, você acertou a pergunta {posicao +1}");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Resposta Incorreta, a resposta correta era a {eLetraResposta.GetNomeTela(pegaRespostaC.LetraResposta)}");
+                        }
+                        break;
+                    case 4:
+                        var pegaRespostaD = listaRespostas.Where(c => c.IDPergunta == posicao+1).FirstOrDefault();
+                        if (pegaRespostaD.LetraResposta == resposta)
+                        {
+                            Jogador.Pontos += 10;
+                            MessageBox.Show($"Parabéns, você acertou a pergunta {posicao +1}");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Resposta Incorreta, a resposta correta era a {eLetraResposta.GetNomeTela(pegaRespostaD.LetraResposta)}");
+                        }
+                        break;
+                }
+
+                posicao++;
+                EmJogo();
+            }
+
+        }
+
+        private void cmdRespostaA_Click(object sender, EventArgs e)
+        {
+            resposta = 1;
+            cmdRespostaB.Enabled = false;
+            cmdRespostaC.Enabled = false;
+            cmdRespostaD.Enabled = false;
+        }
+
+        private void cmdRespostaB_Click(object sender, EventArgs e)
+        {
+            resposta = 2;
+            cmdRespostaA.Enabled = false;
+            cmdRespostaC.Enabled = false;
+            cmdRespostaD.Enabled = false;
+        }
+
+        private void cmdRespostaC_Click(object sender, EventArgs e)
+        {
+            resposta = 3;
+            cmdRespostaA.Enabled = false;
+            cmdRespostaB.Enabled = false;
+            cmdRespostaD.Enabled = false;
+        }
+
+        private void cmdRespostaD_Click(object sender, EventArgs e)
+        {
+            resposta = 4;
+            cmdRespostaA.Enabled = false;
+            cmdRespostaB.Enabled = false;
+            cmdRespostaC.Enabled = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cmdRespostaA.Enabled = true;
+            cmdRespostaB.Enabled = true;
+            cmdRespostaC.Enabled = true;
+            cmdRespostaD.Enabled = true;
+            resposta = 0;
         }
     }
 }
