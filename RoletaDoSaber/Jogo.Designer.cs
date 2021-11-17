@@ -60,7 +60,7 @@ namespace RoletaDoSaber
             this.lblPergunta.BackColor = System.Drawing.Color.Transparent;
             this.lblPergunta.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPergunta.ForeColor = System.Drawing.Color.White;
-            this.lblPergunta.Location = new System.Drawing.Point(615, 60);
+            this.lblPergunta.Location = new System.Drawing.Point(440, 9);
             this.lblPergunta.Name = "lblPergunta";
             this.lblPergunta.Size = new System.Drawing.Size(140, 33);
             this.lblPergunta.TabIndex = 1;

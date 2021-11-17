@@ -81,6 +81,8 @@ namespace RoletaDoSaber
 
         public void EmJogo()
         {
+            lblPergunta.MaximumSize = new Size(400, 0);
+            lblPergunta.AutoSize = true;
             if (posicao != 0) {
                 timer1.Enabled = true;
                 timer1.Enabled = false;
