@@ -12,6 +12,8 @@ namespace RoletaDoSaber
 {
     public partial class Cadastro : Form
     {
+        public Jogador jogador = new Jogador();
+
         public Cadastro()
         {
             InitializeComponent();
@@ -19,7 +21,7 @@ namespace RoletaDoSaber
 
         private void cmdJogar_Click(object sender, EventArgs e)
         {
-            Jogo jogo = new Jogo();
+            Jogo jogo = new Jogo(jogador);
             jogo.Show();
         }
 
@@ -31,7 +33,15 @@ namespace RoletaDoSaber
 
         private void cmdRegistrar_Click(object sender, EventArgs e)
         {
-            cmdJogar.Enabled = true;
+            if (String.IsNullOrEmpty(txtNome.Text))
+            {
+                MessageBox.Show("É obrigatório um nome para o jogador!");
+            }
+            else
+            {
+                cmdJogar.Enabled = true;
+                jogador.Nome = txtNome.Text;
+            }
         }
     }
 }

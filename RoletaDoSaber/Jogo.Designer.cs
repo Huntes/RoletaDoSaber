@@ -50,6 +50,8 @@ namespace RoletaDoSaber
             this.lblOpcao1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblJogador = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblPergunta
@@ -58,7 +60,7 @@ namespace RoletaDoSaber
             this.lblPergunta.BackColor = System.Drawing.Color.Transparent;
             this.lblPergunta.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPergunta.ForeColor = System.Drawing.Color.White;
-            this.lblPergunta.Location = new System.Drawing.Point(623, 31);
+            this.lblPergunta.Location = new System.Drawing.Point(615, 60);
             this.lblPergunta.Name = "lblPergunta";
             this.lblPergunta.Size = new System.Drawing.Size(140, 33);
             this.lblPergunta.TabIndex = 1;
@@ -284,6 +286,30 @@ namespace RoletaDoSaber
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Location = new System.Drawing.Point(337, 444);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 24);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Jogador: ";
+            // 
+            // lblJogador
+            // 
+            this.lblJogador.AutoSize = true;
+            this.lblJogador.BackColor = System.Drawing.Color.Transparent;
+            this.lblJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJogador.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblJogador.Location = new System.Drawing.Point(430, 444);
+            this.lblJogador.Name = "lblJogador";
+            this.lblJogador.Size = new System.Drawing.Size(78, 24);
+            this.lblJogador.TabIndex = 20;
+            this.lblJogador.Text = "NOME ";
+            // 
             // Jogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,6 +317,8 @@ namespace RoletaDoSaber
             this.BackgroundImage = global::RoletaDoSaber.Properties.Resources.FundoRoleta;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(870, 489);
+            this.Controls.Add(this.lblJogador);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblOpcao1);
             this.Controls.Add(this.lblOpcao2);
             this.Controls.Add(this.lblOpcao3);
@@ -339,5 +367,7 @@ namespace RoletaDoSaber
         private System.Windows.Forms.Label lblOpcao1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblJogador;
     }
 }

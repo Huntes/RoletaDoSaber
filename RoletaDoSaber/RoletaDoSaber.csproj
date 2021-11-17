@@ -58,12 +58,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Jogador.cs" />
     <Compile Include="Jogo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Jogo.Designer.cs">
       <DependentUpon>Jogo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pegunta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Cadastro.resx">
