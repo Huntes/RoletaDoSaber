@@ -295,6 +295,7 @@ namespace RoletaDoSaber
             // 
             // timer1
             // 
+            this.timer1.Interval = 80;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // timer2
@@ -416,7 +417,7 @@ namespace RoletaDoSaber
             this.cmdGirar.TabIndex = 27;
             this.cmdGirar.Text = "Girar";
             this.cmdGirar.UseVisualStyleBackColor = false;
-            this.cmdGirar.Click += new System.EventHandler(this.cmdGirar_Click);
+            this.cmdGirar.Visible = false;
             // 
             // Jogo
             // 

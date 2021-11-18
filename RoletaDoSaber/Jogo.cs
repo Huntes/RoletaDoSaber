@@ -57,8 +57,15 @@ namespace RoletaDoSaber
         #endregion
         public Jogador Jogador = new Jogador();
         Random tempo = new Random();
+
+        //Vetor que guarda o valor pra ser multiplicado nos pontos, posicionados na ordem da roleta
+        private readonly int[] multiplicaPontosRoleta = { 15, 8, 10, 5, 10, 25, 10, 30, 10, 25, 2, 40 };
+
+        //Variavel que guarda última posição que a roleta parou
+        private int ultimoNumeroRoleta = 0;
+
         private int c = 0;
-        int k = 0;
+        int numeroDeParadaAleatorio = 0;
         public Jogo()
         {
             InitializeComponent();
@@ -111,8 +118,11 @@ namespace RoletaDoSaber
 
             if (posicao != 0)
             {
-                //timer1.Enabled = true;
-                //timer1.Enabled = false;
+                timer2.Enabled = true;
+                timer1.Enabled = true;
+                cmdGirar.Enabled = false;
+                numeroDeParadaAleatorio = tempo.Next(12, 20);
+                c = 0;
             }
             if (posicao <= 7)
             {
@@ -144,6 +154,7 @@ namespace RoletaDoSaber
                 listaOpcoesRoleta[contador - 1].ForeColor = Color.Black;
             }
             listaOpcoesRoleta[contador].ForeColor = Color.White;
+            ultimoNumeroRoleta = contador;
             contador++;
             if (contador >= 12)
             {
@@ -152,10 +163,17 @@ namespace RoletaDoSaber
 
         }
 
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (c == numeroDeParadaAleatorio)
+            {
+                timer1.Enabled = false;
+            }
+            c++;
+        }
+
         private void cmdConfirma_Click(object sender, EventArgs e)
         {
-            //A cada vez que clicar no botão confirma, trocar as propriedades text do botão e da pergunta
-            //pela pergunta que estiver na posição do foreach()
             #region CorBotao
             cmdRespostaA.BackColor = Color.DarkRed;
             cmdRespostaA.ForeColor = Color.White;
@@ -166,22 +184,34 @@ namespace RoletaDoSaber
             cmdRespostaD.BackColor = Color.DarkRed;
             cmdRespostaD.ForeColor = Color.White;
             #endregion
+
             cmdGirar.Enabled = true;
+            numeroDeParadaAleatorio = 0;
             c = 0;
-            k = 0;
+
             if (resposta == 0)
             {
                 MessageBox.Show("Escolha uma resposta!");
             }
             else
             {
+                var pontosPergunta = listaPerguntas.Where(c => c.ID == posicao + 1).FirstOrDefault().Pontos;
+                var bonusMultiplicador = 0;
+                if (listaPerguntas.Where(c => c.ID == posicao + 1).FirstOrDefault().ID == 1)
+                {
+                    bonusMultiplicador = 1;
+                }
+                else
+                {
+                    bonusMultiplicador = multiplicaPontosRoleta[ultimoNumeroRoleta];
+                }
                 switch (resposta)
                 {
                     case 1:
                         var pegaRespostaA = listaRespostas.Where(c => c.IDPergunta == posicao+1).FirstOrDefault();
                         if (pegaRespostaA.LetraResposta == resposta)
                         {
-                            Jogador.Pontos += 10;
+                            Jogador.Pontos += (pontosPergunta * bonusMultiplicador);
                             MessageBox.Show($"Parabéns, você acertou a pergunta {posicao +1}");
                         }
                         else
@@ -193,7 +223,7 @@ namespace RoletaDoSaber
                         var pegaRespostaB = listaRespostas.Where(c => c.IDPergunta == posicao+1).FirstOrDefault();
                         if (pegaRespostaB.LetraResposta == resposta)
                         {
-                            Jogador.Pontos += 10;
+                            Jogador.Pontos += (pontosPergunta * bonusMultiplicador);
                             MessageBox.Show($"Parabéns, você acertou a pergunta {posicao +1}");
                         }
                         else
@@ -205,7 +235,7 @@ namespace RoletaDoSaber
                         var pegaRespostaC = listaRespostas.Where(c => c.IDPergunta == posicao+1).FirstOrDefault();
                         if (pegaRespostaC.LetraResposta == resposta)
                         {
-                            Jogador.Pontos += 10;
+                            Jogador.Pontos += (pontosPergunta * bonusMultiplicador);
                             MessageBox.Show($"Parabéns, você acertou a pergunta {posicao +1}");
                         }
                         else
@@ -217,7 +247,7 @@ namespace RoletaDoSaber
                         var pegaRespostaD = listaRespostas.Where(c => c.IDPergunta == posicao+1).FirstOrDefault();
                         if (pegaRespostaD.LetraResposta == resposta)
                         {
-                            Jogador.Pontos += 10;
+                            Jogador.Pontos += (pontosPergunta * bonusMultiplicador);
                             MessageBox.Show($"Parabéns, você acertou a pergunta {posicao +1}");
                         }
                         else
@@ -296,21 +326,12 @@ namespace RoletaDoSaber
         private void cmdGirar_Click(object sender, EventArgs e)
         {
             
-            timer2.Enabled = true;
-            timer1.Enabled = true;
-            cmdGirar.Enabled = false;
-            k = tempo.Next(12, 20);
-            c = 0;
+            //timer2.Enabled = true;
+            //timer1.Enabled = true;
+            //cmdGirar.Enabled = false;
+            //k = tempo.Next(12, 20);
+            //c = 0;
 
         }
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            if (c == k)
-            {
-                timer1.Enabled = false;
-            }
-            c++;           
-        }
-
     }
 }
