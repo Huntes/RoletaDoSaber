@@ -18,28 +18,28 @@ namespace RoletaDoSaber
         public static List<Label> listaOpcoesRoleta = new List<Label>();
         public static readonly List<Pegunta> listaPerguntas = new List<Pegunta>()
         {
-            new Pegunta{ID = 1, Pergunta = @"De quem é a famosa frase ""penso, logo existo""?",
+            new Pegunta{Pontos = 3, ID = 1, Pergunta = @"De quem é a famosa frase ""penso, logo existo""?",
             RespostaA = "Platão", RespostaB = "Galileu Galilei", RespostaC = "René Descartes", RespostaD = "Sócrates"},
 
-            new Pegunta{ID = 2, Pergunta = "Qual é o menor e maior país do mundo?",
+            new Pegunta{Pontos = 4, ID = 2, Pergunta = "Qual é o menor e maior país do mundo?",
             RespostaA = "Nauru e China", RespostaB = "Vaticano e Russia", RespostaC = "Mônaco e Canadá", RespostaD = "Brasil e Estados Unidos"},
 
-            new Pegunta{ID = 3, Pergunta = "Qual o número mínimo de jogadores numa partida de futebol?",
+            new Pegunta{Pontos = 5, ID = 3, Pergunta = "Qual o número mínimo de jogadores numa partida de futebol?",
             RespostaA = "5", RespostaB = "10", RespostaC = "7", RespostaD = "12"},
 
-            new Pegunta{ID = 4, Pergunta = "Quais as duas datas que são comemoradas em novembro?",
+            new Pegunta{Pontos = 6, ID = 4, Pergunta = "Quais as duas datas que são comemoradas em novembro?",
             RespostaA = "Dia do médico e dia de São Lucas", RespostaB = "Dia de finados e dia nacional do livro", RespostaC = "Proclamação da República e dia da consciência negra", RespostaD = "Black friday e dia da árvore"},
 
-            new Pegunta{ID = 5, Pergunta = "Quanto tempo a luz do sol demora para chegar a terra?",
+            new Pegunta{Pontos = 7, ID = 5, Pergunta = "Quanto tempo a luz do sol demora para chegar a terra?",
             RespostaA = "13 minutos", RespostaB = "12 horas", RespostaC = "1 dia", RespostaD = "8 minutos"},
 
-            new Pegunta{ID = 6, Pergunta = "Qual personagem folclórico costuma a ser agradado pelos caçadores com a oferta de fumo",
+            new Pegunta{Pontos = 8, ID = 6, Pergunta = "Qual personagem folclórico costuma ser agradado pelos caçadores com a oferta de fumo?",
             RespostaA = "Caipora", RespostaB = "Saci", RespostaC = "Lobisomem", RespostaD = "Boitatá"},
 
-            new Pegunta{ID = 7, Pergunta = "Em que período da pré história o fogo foi descoberto?",
+            new Pegunta{Pontos = 9, ID = 7, Pergunta = "Em que período da pré história o fogo foi descoberto?",
             RespostaA = "Neolítico", RespostaB = "Paleolítico", RespostaC = "Idade dos Metais", RespostaD = "Período da Pedra"},
 
-            new Pegunta{ID = 8, Pergunta = "Qual a montanha mais alta do Brasil?",
+            new Pegunta{Pontos = 10, ID = 8, Pergunta = "Qual a montanha mais alta do Brasil?",
             RespostaA = "Pico da neblina", RespostaB = "Pico Paraná", RespostaC = "Monte Roraima", RespostaD = "Pico maior de Friburgo"},
         };
         public static readonly List<Resposta> listaRespostas = new List<Resposta>()
@@ -56,6 +56,9 @@ namespace RoletaDoSaber
 
         #endregion
         public Jogador Jogador = new Jogador();
+        Random tempo = new Random();
+        private int c = 0;
+        int k = 0;
         public Jogo()
         {
             InitializeComponent();
@@ -73,9 +76,15 @@ namespace RoletaDoSaber
 
         private void Jogo_Load(object sender, EventArgs e)
         {
+            
+            timer2.Interval = tempo.Next(70, 250);
+           // timer1.Interval = timer2.Interval;
+            lblPergunta.MaximumSize = new Size(400, 0);
+           // lblPergunta.AutoSize = true;
             lblJogador.Text = Jogador.Nome;
             Jogador.Pontos = 0;
 
+            #region insere Lista
             listaOpcoesRoleta.Add(lblOpcao1);
             listaOpcoesRoleta.Add(lblOpcao2);
             listaOpcoesRoleta.Add(lblOpcao3);
@@ -88,6 +97,7 @@ namespace RoletaDoSaber
             listaOpcoesRoleta.Add(lblOpcao10);
             listaOpcoesRoleta.Add(lblOpcao11);
             listaOpcoesRoleta.Add(lblOpcao12);
+            #endregion
 
             EmJogo();
         }
@@ -101,12 +111,13 @@ namespace RoletaDoSaber
 
             if (posicao != 0)
             {
-                timer1.Enabled = true;
-                timer1.Enabled = false;
+                //timer1.Enabled = true;
+                //timer1.Enabled = false;
             }
             if (posicao <= 7)
             {
                 lblPergunta.Text = listaPerguntas[posicao].Pergunta;
+                lblPontos.Text = "Vale: " + listaPerguntas[posicao].Pontos.ToString();
                 cmdRespostaA.Text = listaPerguntas[posicao].RespostaA;
                 cmdRespostaB.Text = listaPerguntas[posicao].RespostaB;
                 cmdRespostaC.Text = listaPerguntas[posicao].RespostaC;
@@ -145,7 +156,19 @@ namespace RoletaDoSaber
         {
             //A cada vez que clicar no botão confirma, trocar as propriedades text do botão e da pergunta
             //pela pergunta que estiver na posição do foreach()
-
+            #region CorBotao
+            cmdRespostaA.BackColor = Color.DarkRed;
+            cmdRespostaA.ForeColor = Color.White;
+            cmdRespostaB.BackColor = Color.DarkRed;
+            cmdRespostaB.ForeColor = Color.White;
+            cmdRespostaC.BackColor = Color.DarkRed;
+            cmdRespostaC.ForeColor = Color.White;
+            cmdRespostaD.BackColor = Color.DarkRed;
+            cmdRespostaD.ForeColor = Color.White;
+            #endregion
+            cmdGirar.Enabled = true;
+            c = 0;
+            k = 0;
             if (resposta == 0)
             {
                 MessageBox.Show("Escolha uma resposta!");
@@ -213,6 +236,8 @@ namespace RoletaDoSaber
         private void cmdRespostaA_Click(object sender, EventArgs e)
         {
             resposta = 1;
+            cmdRespostaA.BackColor = Color.Yellow;
+            cmdRespostaA.ForeColor = Color.Black;
             cmdRespostaB.Enabled = false;
             cmdRespostaC.Enabled = false;
             cmdRespostaD.Enabled = false;
@@ -221,6 +246,8 @@ namespace RoletaDoSaber
         private void cmdRespostaB_Click(object sender, EventArgs e)
         {
             resposta = 2;
+            cmdRespostaB.BackColor = Color.Yellow;
+            cmdRespostaB.ForeColor = Color.Black;
             cmdRespostaA.Enabled = false;
             cmdRespostaC.Enabled = false;
             cmdRespostaD.Enabled = false;
@@ -229,6 +256,8 @@ namespace RoletaDoSaber
         private void cmdRespostaC_Click(object sender, EventArgs e)
         {
             resposta = 3;
+            cmdRespostaC.BackColor = Color.Yellow;
+            cmdRespostaC.ForeColor = Color.Black;
             cmdRespostaA.Enabled = false;
             cmdRespostaB.Enabled = false;
             cmdRespostaD.Enabled = false;
@@ -237,6 +266,8 @@ namespace RoletaDoSaber
         private void cmdRespostaD_Click(object sender, EventArgs e)
         {
             resposta = 4;
+            cmdRespostaD.BackColor = Color.Yellow;
+            cmdRespostaD.ForeColor = Color.Black;
             cmdRespostaA.Enabled = false;
             cmdRespostaB.Enabled = false;
             cmdRespostaC.Enabled = false;
@@ -244,11 +275,42 @@ namespace RoletaDoSaber
 
         private void button1_Click(object sender, EventArgs e)
         {
+            #region CorBotao
+            cmdRespostaA.BackColor = Color.DarkRed;
+            cmdRespostaA.ForeColor = Color.White;
+            cmdRespostaB.BackColor = Color.DarkRed;
+            cmdRespostaB.ForeColor = Color.White;
+            cmdRespostaC.BackColor = Color.DarkRed;
+            cmdRespostaC.ForeColor = Color.White;
+            cmdRespostaD.BackColor = Color.DarkRed;
+            cmdRespostaD.ForeColor = Color.White;
+            #endregion
             cmdRespostaA.Enabled = true;
             cmdRespostaB.Enabled = true;
             cmdRespostaC.Enabled = true;
             cmdRespostaD.Enabled = true;
             resposta = 0;
         }
+
+
+        private void cmdGirar_Click(object sender, EventArgs e)
+        {
+            
+            timer2.Enabled = true;
+            timer1.Enabled = true;
+            cmdGirar.Enabled = false;
+            k = tempo.Next(12, 20);
+            c = 0;
+
+        }
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (c == k)
+            {
+                timer1.Enabled = false;
+            }
+            c++;           
+        }
+
     }
 }

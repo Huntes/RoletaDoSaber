@@ -8,6 +8,7 @@ namespace RoletaDoSaber
 {
     public class Pegunta
     {
+        public int Pontos { get; set; }
         public long ID { get; set; }
         public string Pergunta { get; set; }
         public string RespostaA { get; set; }

@@ -53,6 +53,12 @@ namespace RoletaDoSaber
             this.label1 = new System.Windows.Forms.Label();
             this.lblJogador = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblPontos = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmdGirar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblPergunta
@@ -291,13 +297,18 @@ namespace RoletaDoSaber
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // timer2
+            // 
+            this.timer2.Interval = 250;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(231, 453);
+            this.label1.Location = new System.Drawing.Point(224, 453);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 24);
             this.label1.TabIndex = 19;
@@ -331,6 +342,82 @@ namespace RoletaDoSaber
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lblPontos
+            // 
+            this.lblPontos.AutoSize = true;
+            this.lblPontos.BackColor = System.Drawing.Color.Transparent;
+            this.lblPontos.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPontos.ForeColor = System.Drawing.Color.White;
+            this.lblPontos.Location = new System.Drawing.Point(678, 106);
+            this.lblPontos.Name = "lblPontos";
+            this.lblPontos.Size = new System.Drawing.Size(180, 33);
+            this.lblPontos.TabIndex = 22;
+            this.lblPontos.Text = "Vale: 10 pts";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(533, 162);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 24);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "A)";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.Location = new System.Drawing.Point(533, 230);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 24);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "B)";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label4.Location = new System.Drawing.Point(533, 301);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 24);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "C)";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label5.Location = new System.Drawing.Point(533, 372);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 24);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "D)";
+            // 
+            // cmdGirar
+            // 
+            this.cmdGirar.BackColor = System.Drawing.Color.Cyan;
+            this.cmdGirar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdGirar.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.cmdGirar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdGirar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdGirar.ForeColor = System.Drawing.Color.Black;
+            this.cmdGirar.Location = new System.Drawing.Point(195, 230);
+            this.cmdGirar.Name = "cmdGirar";
+            this.cmdGirar.Size = new System.Drawing.Size(82, 43);
+            this.cmdGirar.TabIndex = 27;
+            this.cmdGirar.Text = "Girar";
+            this.cmdGirar.UseVisualStyleBackColor = false;
+            this.cmdGirar.Click += new System.EventHandler(this.cmdGirar_Click);
+            // 
             // Jogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -338,6 +425,12 @@ namespace RoletaDoSaber
             this.BackgroundImage = global::RoletaDoSaber.Properties.Resources.FundoRoleta;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(870, 489);
+            this.Controls.Add(this.cmdGirar);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblPontos);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblJogador);
             this.Controls.Add(this.label1);
@@ -393,5 +486,11 @@ namespace RoletaDoSaber
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblJogador;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblPontos;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button cmdGirar;
     }
 }
