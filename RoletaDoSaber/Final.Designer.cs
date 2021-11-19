@@ -30,7 +30,6 @@ namespace RoletaDoSaber
         private void InitializeComponent()
         {
             this.cmdsair = new System.Windows.Forms.Button();
-            this.cmdJoogarNovamente = new System.Windows.Forms.Button();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblPontos = new System.Windows.Forms.Label();
             this.lblPlacar = new System.Windows.Forms.Label();
@@ -44,29 +43,13 @@ namespace RoletaDoSaber
             this.cmdsair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdsair.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdsair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cmdsair.Location = new System.Drawing.Point(193, 289);
+            this.cmdsair.Location = new System.Drawing.Point(333, 292);
             this.cmdsair.Name = "cmdsair";
             this.cmdsair.Size = new System.Drawing.Size(137, 43);
             this.cmdsair.TabIndex = 7;
             this.cmdsair.Text = "Sair";
             this.cmdsair.UseVisualStyleBackColor = false;
             this.cmdsair.Click += new System.EventHandler(this.cmdsair_Click);
-            // 
-            // cmdJoogarNovamente
-            // 
-            this.cmdJoogarNovamente.BackColor = System.Drawing.Color.Chartreuse;
-            this.cmdJoogarNovamente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdJoogarNovamente.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.cmdJoogarNovamente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdJoogarNovamente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdJoogarNovamente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cmdJoogarNovamente.Location = new System.Drawing.Point(493, 289);
-            this.cmdJoogarNovamente.Name = "cmdJoogarNovamente";
-            this.cmdJoogarNovamente.Size = new System.Drawing.Size(137, 43);
-            this.cmdJoogarNovamente.TabIndex = 8;
-            this.cmdJoogarNovamente.Text = "Denovo";
-            this.cmdJoogarNovamente.UseVisualStyleBackColor = false;
-            this.cmdJoogarNovamente.Click += new System.EventHandler(this.cmdJoogarNovamente_Click);
             // 
             // lblNome
             // 
@@ -114,7 +97,6 @@ namespace RoletaDoSaber
             this.Controls.Add(this.lblPlacar);
             this.Controls.Add(this.lblPontos);
             this.Controls.Add(this.lblNome);
-            this.Controls.Add(this.cmdJoogarNovamente);
             this.Controls.Add(this.cmdsair);
             this.Name = "Final";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -128,7 +110,6 @@ namespace RoletaDoSaber
         #endregion
 
         private System.Windows.Forms.Button cmdsair;
-        private System.Windows.Forms.Button cmdJoogarNovamente;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblPontos;
         private System.Windows.Forms.Label lblPlacar;

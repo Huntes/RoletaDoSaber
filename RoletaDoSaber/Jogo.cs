@@ -27,8 +27,8 @@ namespace RoletaDoSaber
             new Pegunta{Pontos = 5, ID = 3, Pergunta = "Qual o número mínimo de jogadores numa partida de futebol?",
             RespostaA = "5", RespostaB = "10", RespostaC = "7", RespostaD = "12"},
 
-            new Pegunta{Pontos = 6, ID = 4, Pergunta = "Quais as duas datas que são comemoradas em novembro?",
-            RespostaA = "Dia do médico e dia de São Lucas", RespostaB = "Dia de finados e dia nacional do livro", RespostaC = "Proclamação da República e dia da consciência negra", RespostaD = "Black friday e dia da árvore"},
+            new Pegunta{Pontos = 6, ID = 4, Pergunta = "Qual resposta abaixo é uma data comemorada em Novembro?",
+            RespostaA = "Dia do médico", RespostaB = "Dia nacional do livro", RespostaC = "Proclamação da República", RespostaD = "Natal"},
 
             new Pegunta{Pontos = 7, ID = 5, Pergunta = "Quanto tempo a luz do sol demora para chegar a terra?",
             RespostaA = "13 minutos", RespostaB = "12 horas", RespostaC = "1 dia", RespostaD = "8 minutos"},
@@ -83,15 +83,16 @@ namespace RoletaDoSaber
 
         private void Jogo_Load(object sender, EventArgs e)
         {
-            
             timer2.Interval = tempo.Next(70, 250);
-           // timer1.Interval = timer2.Interval;
+            timer1.Enabled = true;
+            timer2.Enabled = true;
+            numeroDeParadaAleatorio = tempo.Next(12, 20);
+            c = 0;
             lblPergunta.MaximumSize = new Size(400, 0);
-           // lblPergunta.AutoSize = true;
             lblJogador.Text = Jogador.Nome;
             Jogador.Pontos = 0;
 
-            #region insere Lista
+            #region Insere opções na Lista
             listaOpcoesRoleta.Add(lblOpcao1);
             listaOpcoesRoleta.Add(lblOpcao2);
             listaOpcoesRoleta.Add(lblOpcao3);
@@ -111,13 +112,22 @@ namespace RoletaDoSaber
 
         public void EmJogo()
         {
-            cmdRespostaA.Enabled = true;
-            cmdRespostaB.Enabled = true;
-            cmdRespostaC.Enabled = true;
-            cmdRespostaD.Enabled = true;
+            cmdRespostaA.Enabled = false;
+            cmdRespostaB.Enabled = false;
+            cmdRespostaC.Enabled = false;
+            cmdRespostaD.Enabled = false;
+            cmdConfirma.Enabled = false;
+            button1.Enabled = false;
 
             if (posicao != 0)
             {
+                cmdRespostaA.Enabled = false;
+                cmdRespostaB.Enabled = false;
+                cmdRespostaC.Enabled = false;
+                cmdRespostaD.Enabled = false;
+                cmdConfirma.Enabled = false;
+                button1.Enabled = false;
+
                 timer2.Enabled = true;
                 timer1.Enabled = true;
                 cmdGirar.Enabled = false;
@@ -168,6 +178,13 @@ namespace RoletaDoSaber
             if (c == numeroDeParadaAleatorio)
             {
                 timer1.Enabled = false;
+
+                cmdRespostaA.Enabled = true;
+                cmdRespostaB.Enabled = true;
+                cmdRespostaC.Enabled = true;
+                cmdRespostaD.Enabled = true;
+                cmdConfirma.Enabled = true;
+                button1.Enabled = true;
             }
             c++;
         }
@@ -196,23 +213,15 @@ namespace RoletaDoSaber
             else
             {
                 var pontosPergunta = listaPerguntas.Where(c => c.ID == posicao + 1).FirstOrDefault().Pontos;
-                var bonusMultiplicador = 0;
-                if (listaPerguntas.Where(c => c.ID == posicao + 1).FirstOrDefault().ID == 1)
-                {
-                    bonusMultiplicador = 1;
-                }
-                else
-                {
-                    bonusMultiplicador = multiplicaPontosRoleta[ultimoNumeroRoleta];
-                }
+                var bonusMultiplicador = multiplicaPontosRoleta[ultimoNumeroRoleta];
                 switch (resposta)
                 {
                     case 1:
-                        var pegaRespostaA = listaRespostas.Where(c => c.IDPergunta == posicao+1).FirstOrDefault();
+                        var pegaRespostaA = listaRespostas.Where(c => c.IDPergunta == posicao + 1).FirstOrDefault();
                         if (pegaRespostaA.LetraResposta == resposta)
                         {
                             Jogador.Pontos += (pontosPergunta * bonusMultiplicador);
-                            MessageBox.Show($"Parabéns, você acertou a pergunta {posicao +1}");
+                            MessageBox.Show($"Parabéns, você acertou a pergunta {posicao + 1}");
                         }
                         else
                         {
@@ -220,11 +229,11 @@ namespace RoletaDoSaber
                         }
                         break;
                     case 2:
-                        var pegaRespostaB = listaRespostas.Where(c => c.IDPergunta == posicao+1).FirstOrDefault();
+                        var pegaRespostaB = listaRespostas.Where(c => c.IDPergunta == posicao + 1).FirstOrDefault();
                         if (pegaRespostaB.LetraResposta == resposta)
                         {
                             Jogador.Pontos += (pontosPergunta * bonusMultiplicador);
-                            MessageBox.Show($"Parabéns, você acertou a pergunta {posicao +1}");
+                            MessageBox.Show($"Parabéns, você acertou a pergunta {posicao + 1}");
                         }
                         else
                         {
@@ -232,11 +241,11 @@ namespace RoletaDoSaber
                         }
                         break;
                     case 3:
-                        var pegaRespostaC = listaRespostas.Where(c => c.IDPergunta == posicao+1).FirstOrDefault();
+                        var pegaRespostaC = listaRespostas.Where(c => c.IDPergunta == posicao + 1).FirstOrDefault();
                         if (pegaRespostaC.LetraResposta == resposta)
                         {
                             Jogador.Pontos += (pontosPergunta * bonusMultiplicador);
-                            MessageBox.Show($"Parabéns, você acertou a pergunta {posicao +1}");
+                            MessageBox.Show($"Parabéns, você acertou a pergunta {posicao + 1}");
                         }
                         else
                         {
@@ -244,11 +253,11 @@ namespace RoletaDoSaber
                         }
                         break;
                     case 4:
-                        var pegaRespostaD = listaRespostas.Where(c => c.IDPergunta == posicao+1).FirstOrDefault();
+                        var pegaRespostaD = listaRespostas.Where(c => c.IDPergunta == posicao + 1).FirstOrDefault();
                         if (pegaRespostaD.LetraResposta == resposta)
                         {
                             Jogador.Pontos += (pontosPergunta * bonusMultiplicador);
-                            MessageBox.Show($"Parabéns, você acertou a pergunta {posicao +1}");
+                            MessageBox.Show($"Parabéns, você acertou a pergunta {posicao + 1}");
                         }
                         else
                         {
@@ -325,7 +334,7 @@ namespace RoletaDoSaber
 
         private void cmdGirar_Click(object sender, EventArgs e)
         {
-            
+
             //timer2.Enabled = true;
             //timer1.Enabled = true;
             //cmdGirar.Enabled = false;

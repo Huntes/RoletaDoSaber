@@ -28,16 +28,17 @@ namespace RoletaDoSaber
             lblPontos.Text = "Pontos: " + Jogador.Pontos;
         }
 
-        private void cmdJoogarNovamente_Click(object sender, EventArgs e)
-        {
-            Jogo jogo = new Jogo(Jogador);
-            jogo.Show();
-            Close();
-        }
+        //private void cmdJoogarNovamente_Click(object sender, EventArgs e)
+        //{
+        //    Jogo jogo = new Jogo(Jogador);
+        //    jogo.Show();
+        //    Close();
+        //}
 
         private void cmdsair_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
+            Application.Exit();
         }
     }
 }

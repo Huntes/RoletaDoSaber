@@ -13,9 +13,16 @@ namespace RoletaDoSaber
     public partial class Cadastro : Form
     {
         public Jogador jogador = new Jogador();
+        Form1 formularioInicio = new Form1();
 
         public Cadastro()
         {
+            InitializeComponent();
+        }
+
+        public Cadastro(Form1 inicio)
+        {
+            formularioInicio = inicio;
             InitializeComponent();
         }
 
@@ -29,6 +36,8 @@ namespace RoletaDoSaber
         private void cmdMenu_Click(object sender, EventArgs e)
         {
             Close();
+            Form1 menu = new Form1();
+            menu.Show();
         }
 
         private void cmdRegistrar_Click(object sender, EventArgs e)
@@ -43,6 +52,11 @@ namespace RoletaDoSaber
                 jogador.Nome = txtNome.Text;
                 MessageBox.Show($"{jogador.Nome} Registrado!!");
             }
+        }
+
+        private void Cadastro_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
