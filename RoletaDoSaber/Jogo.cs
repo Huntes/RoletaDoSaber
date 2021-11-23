@@ -18,29 +18,29 @@ namespace RoletaDoSaber
         public static List<Label> listaOpcoesRoleta = new List<Label>();
         public static readonly List<Pegunta> listaPerguntas = new List<Pegunta>()
         {
-            new Pegunta{Pontos = 3, ID = 1, Pergunta = @"De quem é a famosa frase ""penso, logo existo""?",
-            RespostaA = "Platão", RespostaB = "Galileu Galilei", RespostaC = "René Descartes", RespostaD = "Sócrates"},
+            new Pegunta{Pontos = 3, ID = 1, Pergunta = "O que são animais herbívoros?",
+            RespostaA = "Os que se alimentam de carnes", RespostaB = "Animais mamíferos", RespostaC = "Os que se alimentam de plantas", RespostaD = "Todas estão corretas"},
 
-            new Pegunta{Pontos = 4, ID = 2, Pergunta = "Qual é o menor e maior país do mundo?",
-            RespostaA = "Nauru e China", RespostaB = "Vaticano e Russia", RespostaC = "Mônaco e Canadá", RespostaD = "Brasil e Estados Unidos"},
+            new Pegunta{Pontos = 4, ID = 2, Pergunta = "Quais animais estão no topo da cadeia alimentar?",
+            RespostaA = "Herbívoros", RespostaB = "Carnívoros", RespostaC = "Mamíferos", RespostaD = "Repiteis"},
 
-            new Pegunta{Pontos = 5, ID = 3, Pergunta = "Qual o número mínimo de jogadores numa partida de futebol?",
-            RespostaA = "5", RespostaB = "10", RespostaC = "7", RespostaD = "12"},
+            new Pegunta{Pontos = 5, ID = 3, Pergunta = "O que são animais mamíferos?",
+            RespostaA = "Todos que tem pelos", RespostaB = "Todos que vivem na água", RespostaC = "Os que apresentam glândulas mamárias", RespostaD = "Os que são os maiores da floresta"},
 
-            new Pegunta{Pontos = 6, ID = 4, Pergunta = "Qual resposta abaixo é uma data comemorada em Novembro?",
-            RespostaA = "Dia do médico", RespostaB = "Dia nacional do livro", RespostaC = "Proclamação da República", RespostaD = "Natal"},
+            new Pegunta{Pontos = 6, ID = 4, Pergunta = "O processo em que as plantas utilizam a luz como fonte de energia é chamado?",
+            RespostaA = "Elas se transforma em polem", RespostaB = "Chamamos de processo solido", RespostaC = "Fotossíntese", RespostaD = "Produção de flores"},
 
-            new Pegunta{Pontos = 7, ID = 5, Pergunta = "Quanto tempo a luz do sol demora para chegar a terra?",
-            RespostaA = "13 minutos", RespostaB = "12 horas", RespostaC = "1 dia", RespostaD = "8 minutos"},
+            new Pegunta{Pontos = 7, ID = 5, Pergunta = "Quais são os três estados físicos da água?",
+            RespostaA = "Gasoso e liquido", RespostaB = "Solido e liquido", RespostaC = "Todas estão correstas", RespostaD = "Sólido, liquido e gasoso"},
 
-            new Pegunta{Pontos = 8, ID = 6, Pergunta = "Qual personagem folclórico costuma ser agradado pelos caçadores com a oferta de fumo?",
-            RespostaA = "Caipora", RespostaB = "Saci", RespostaC = "Lobisomem", RespostaD = "Boitatá"},
+            new Pegunta{Pontos = 8, ID = 6, Pergunta = "Quais são as quatro fases da lua?",
+            RespostaA = "Cheia, minguante, nova, e crescente.", RespostaB = "minguante e nova", RespostaC = "crescente, cheia e nova", RespostaD = "nova e cheia, minguante"},
 
-            new Pegunta{Pontos = 9, ID = 7, Pergunta = "Em que período da pré história o fogo foi descoberto?",
-            RespostaA = "Neolítico", RespostaB = "Paleolítico", RespostaC = "Idade dos Metais", RespostaD = "Período da Pedra"},
+            new Pegunta{Pontos = 9, ID = 7, Pergunta = "Quais são as quatro estações do ano?",
+            RespostaA = "lua cheia, verão e outono", RespostaB = "primavera, verão, outono e inverno", RespostaC = "outono, verão e inverno", RespostaD = "primavera e inverno"},
 
-            new Pegunta{Pontos = 10, ID = 8, Pergunta = "Qual a montanha mais alta do Brasil?",
-            RespostaA = "Pico da neblina", RespostaB = "Pico Paraná", RespostaC = "Monte Roraima", RespostaD = "Pico maior de Friburgo"},
+            new Pegunta{Pontos = 10, ID = 8, Pergunta = "Espermatozoide é a célula reprodutiva?",
+            RespostaA = "masculina, existente apenas seres humanos", RespostaB = "feminina, existente em todos seres vivos", RespostaC = "Feminina, existe apenas seres humanos ", RespostaD = "Todas as espécies"},
         };
         public static readonly List<Resposta> listaRespostas = new List<Resposta>()
         {
