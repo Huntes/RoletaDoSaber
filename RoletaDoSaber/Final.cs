@@ -25,7 +25,7 @@ namespace RoletaDoSaber
         private void Final_Load(object sender, EventArgs e)
         {
             lblNome.Text = "Nome: " + Jogador.Nome;
-            lblPontos.Text = "Pontos: " + Jogador.Pontos;
+            lblPontos.Text = "Total de Pontos: " + Jogador.Pontos;
         }
 
         //private void cmdJoogarNovamente_Click(object sender, EventArgs e)

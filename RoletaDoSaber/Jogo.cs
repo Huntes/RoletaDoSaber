@@ -64,7 +64,10 @@ namespace RoletaDoSaber
         //Variavel que guarda última posição que a roleta parou
         private int ultimoNumeroRoleta = 0;
 
+        //Variável contadora que será critério de parada para roleta
         private int c = 0;
+
+        //Varíável que guarda número aleatório gerado para roleta
         int numeroDeParadaAleatorio = 0;
         public Jogo()
         {
@@ -81,6 +84,11 @@ namespace RoletaDoSaber
         int posicao = 0;
         int resposta = 0;
 
+        /* Quando o formulário é carregado, é inicializado 2 timers, onde 1 percorre as opções disponíveis 
+         * na roleta, preenchendo com cores as labels e outro que será usado como critério de parada.
+         * 
+         * Na inicialização do formulário também é inserido em uma lista todas as opções disponíveis da roleta. 
+         */
         private void Jogo_Load(object sender, EventArgs e)
         {
             timer2.Interval = tempo.Next(70, 250);
@@ -208,7 +216,7 @@ namespace RoletaDoSaber
 
             if (resposta == 0)
             {
-                MessageBox.Show("Escolha uma resposta!");
+                MessageBox.Show("Escolha uma resposta!","Resposta Inválida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
@@ -216,56 +224,60 @@ namespace RoletaDoSaber
                 var bonusMultiplicador = multiplicaPontosRoleta[ultimoNumeroRoleta];
                 switch (resposta)
                 {
-                    case 1:
+                    case (int)eResposta.LetraA:
                         var pegaRespostaA = listaRespostas.Where(c => c.IDPergunta == posicao + 1).FirstOrDefault();
                         if (pegaRespostaA.LetraResposta == resposta)
                         {
                             Jogador.Pontos += (pontosPergunta * bonusMultiplicador);
-                            MessageBox.Show($"Parabéns, você acertou a pergunta {posicao + 1}");
+                            MessageBox.Show($"Você acertou a pergunta {posicao + 1}", "Parabéns", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show($"Resposta Incorreta, a resposta correta era a {eLetraResposta.GetNomeTela(pegaRespostaA.LetraResposta)}");
+                            MessageBox.Show($"Resposta Incorreta, a resposta correta era a {eLetraResposta.GetNomeTela(pegaRespostaA.LetraResposta)}","Resposta Incorreta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
-                    case 2:
+
+                    case (int)eResposta.LetraB:
                         var pegaRespostaB = listaRespostas.Where(c => c.IDPergunta == posicao + 1).FirstOrDefault();
                         if (pegaRespostaB.LetraResposta == resposta)
                         {
                             Jogador.Pontos += (pontosPergunta * bonusMultiplicador);
-                            MessageBox.Show($"Parabéns, você acertou a pergunta {posicao + 1}");
+                            MessageBox.Show($"Você acertou a pergunta {posicao + 1}","Parabéns", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show($"Resposta Incorreta, a resposta correta era a {eLetraResposta.GetNomeTela(pegaRespostaB.LetraResposta)}");
+                            MessageBox.Show($"Resposta Incorreta, a resposta correta era a {eLetraResposta.GetNomeTela(pegaRespostaB.LetraResposta)}", "Resposta Incorreta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
-                    case 3:
+
+                    case (int)eResposta.LetraC:
                         var pegaRespostaC = listaRespostas.Where(c => c.IDPergunta == posicao + 1).FirstOrDefault();
                         if (pegaRespostaC.LetraResposta == resposta)
                         {
                             Jogador.Pontos += (pontosPergunta * bonusMultiplicador);
-                            MessageBox.Show($"Parabéns, você acertou a pergunta {posicao + 1}");
+                            MessageBox.Show($"Você acertou a pergunta {posicao + 1}", "Parabéns", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show($"Resposta Incorreta, a resposta correta era a {eLetraResposta.GetNomeTela(pegaRespostaC.LetraResposta)}");
+                            MessageBox.Show($"Resposta Incorreta, a resposta correta era a {eLetraResposta.GetNomeTela(pegaRespostaC.LetraResposta)}", "Resposta Incorreta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
-                    case 4:
+
+                    case (int)eResposta.LetraD:
                         var pegaRespostaD = listaRespostas.Where(c => c.IDPergunta == posicao + 1).FirstOrDefault();
                         if (pegaRespostaD.LetraResposta == resposta)
                         {
                             Jogador.Pontos += (pontosPergunta * bonusMultiplicador);
-                            MessageBox.Show($"Parabéns, você acertou a pergunta {posicao + 1}");
+                            MessageBox.Show($"Você acertou a pergunta {posicao + 1}", "Parabéns", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show($"Resposta Incorreta, a resposta correta era a {eLetraResposta.GetNomeTela(pegaRespostaD.LetraResposta)}");
+                            MessageBox.Show($"Resposta Incorreta, a resposta correta era a {eLetraResposta.GetNomeTela(pegaRespostaD.LetraResposta)}", "Resposta Incorreta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
                 }
 
+                resposta = 0;
                 posicao++;
                 EmJogo();
             }
@@ -324,6 +336,7 @@ namespace RoletaDoSaber
             cmdRespostaD.BackColor = Color.DarkRed;
             cmdRespostaD.ForeColor = Color.White;
             #endregion
+
             cmdRespostaA.Enabled = true;
             cmdRespostaB.Enabled = true;
             cmdRespostaC.Enabled = true;

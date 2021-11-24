@@ -44,13 +44,13 @@ namespace RoletaDoSaber
         {
             if (String.IsNullOrEmpty(txtNome.Text))
             {
-                MessageBox.Show("É obrigatório um nome para o jogador!");
+                MessageBox.Show("É obrigatório um nome para o jogador!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 cmdJogar.Enabled = true;
                 jogador.Nome = txtNome.Text;
-                MessageBox.Show($"{jogador.Nome} Registrado!!");
+                MessageBox.Show($"{jogador.Nome} foi registrado!", "Registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

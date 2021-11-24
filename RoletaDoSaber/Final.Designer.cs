@@ -79,13 +79,13 @@ namespace RoletaDoSaber
             // 
             this.lblPlacar.AutoSize = true;
             this.lblPlacar.BackColor = System.Drawing.Color.Transparent;
-            this.lblPlacar.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlacar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlacar.ForeColor = System.Drawing.Color.White;
-            this.lblPlacar.Location = new System.Drawing.Point(152, 74);
+            this.lblPlacar.Location = new System.Drawing.Point(142, 73);
             this.lblPlacar.Name = "lblPlacar";
-            this.lblPlacar.Size = new System.Drawing.Size(113, 33);
+            this.lblPlacar.Size = new System.Drawing.Size(199, 37);
             this.lblPlacar.TabIndex = 11;
-            this.lblPlacar.Text = "Placar:";
+            this.lblPlacar.Text = "Placar Final";
             // 
             // Final
             // 
