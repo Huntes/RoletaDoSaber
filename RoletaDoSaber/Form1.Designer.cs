@@ -32,6 +32,7 @@ namespace RoletaDoSaber
             this.cmdIniciar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +44,7 @@ namespace RoletaDoSaber
             this.cmdIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdIniciar.ForeColor = System.Drawing.SystemColors.Control;
-            this.cmdIniciar.Location = new System.Drawing.Point(317, 313);
+            this.cmdIniciar.Location = new System.Drawing.Point(246, 306);
             this.cmdIniciar.Name = "cmdIniciar";
             this.cmdIniciar.Size = new System.Drawing.Size(176, 51);
             this.cmdIniciar.TabIndex = 0;
@@ -74,6 +75,22 @@ namespace RoletaDoSaber
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Chartreuse;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(463, 306);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(176, 51);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Créditos";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -82,6 +99,7 @@ namespace RoletaDoSaber
             this.BackgroundImage = global::RoletaDoSaber.Properties.Resources.backmenu;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmdIniciar);
@@ -101,6 +119,7 @@ namespace RoletaDoSaber
         private System.Windows.Forms.Button cmdIniciar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
